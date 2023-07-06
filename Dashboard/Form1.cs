@@ -12,6 +12,7 @@ namespace Dashboard
 {
     public partial class Form1 : Form
     {
+        private Dashboard model;
         public Form1()
         {
             InitializeComponent();
