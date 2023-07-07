@@ -46,7 +46,7 @@ CREATE TABLE Venta(
 	ciudad VARCHAR (50),
 	oferta VARCHAR (20),
 	prod_nombre VARCHAR(50),
-	cant_compra VARCHAR (50),
+	cant_compra INT,
 	prod_precio DECIMAL(10,2),
 	ud_nombre VARCHAR(30),
 	total DECIMAL(10,2),
@@ -3999,3 +3999,30 @@ FOREIGN KEY (id_categoria) REFERENCES Categoria(id_categoria);
 ALTER TABLE Producto
 ADD CONSTRAINT FK_UdMedida
 FOREIGN KEY (id_udMedida) REFERENCES unidad_medida(id_udMedida);
+
+--Consultas
+--####### TOP PRODUCTOS MAS VENDIDOS #########
+DECLARE @fechaInicio DATE ='2023-01-04';
+DECLARE @fechaReciente DATE = '2023-07-04';
+
+SELECT TOP 5 P.prod_nombre, SUM(V.cant_compra) as ventas
+FROM VENTA V
+INNER JOIN Producto P ON V.prod_nombre = P.prod_nombre
+WHERE V.date_venta BETWEEN @fechaInicio AND @fechaReciente
+GROUP BY P.prod_nombre
+ORDER BY ventas desc;
+
+--########################
+--CREATE PROCEDURE SP_ProductosMasVendidos
+--@fechaInicio DATE,
+--@fechaReciente DATE
+--AS
+--SELECT TOP 5 P.prod_nombre, SUM(V.cant_compra) as ventas
+--FROM VENTA V
+--INNER JOIN Producto P ON V.prod_nombre = P.prod_nombre
+--WHERE V.date_venta BETWEEN @fechaInicio AND @fechaReciente
+--GROUP BY P.prod_nombre
+--ORDER BY ventas desc;
+
+--EXECUTE SP_ProductosMasVendidos '2023-01-04','2023-02-04';
+--########################################################

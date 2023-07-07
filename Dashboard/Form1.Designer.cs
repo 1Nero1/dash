@@ -42,20 +42,20 @@
             this.date_ini = new System.Windows.Forms.DateTimePicker();
             this.lab_dateIni = new System.Windows.Forms.Label();
             this.lab_reciente = new System.Windows.Forms.Label();
-            this.date_act = new System.Windows.Forms.DateTimePicker();
+            this.date_reciente = new System.Windows.Forms.DateTimePicker();
             this.btn_buscar = new System.Windows.Forms.Button();
             this.btn_dia = new System.Windows.Forms.Button();
             this.btn_sem = new System.Windows.Forms.Button();
             this.btn_mes = new System.Windows.Forms.Button();
             this.panel_producto = new System.Windows.Forms.Panel();
-            this.label_producto = new System.Windows.Forms.Label();
-            this.label_nam_product = new System.Windows.Forms.Label();
-            this.lab_data = new System.Windows.Forms.Label();
-            this.lab_precio = new System.Windows.Forms.Label();
             this.lab_S = new System.Windows.Forms.Label();
+            this.lab_precio = new System.Windows.Forms.Label();
+            this.lab_data = new System.Windows.Forms.Label();
+            this.label_nam_product = new System.Windows.Forms.Label();
+            this.label_producto = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.dataGrid_prod_vendidos = new System.Windows.Forms.DataGridView();
             this.lab_produ_mas_vend = new System.Windows.Forms.Label();
+            this.dataGrid_prod_vendidos = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.charComparativa)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartTopVentas)).BeginInit();
             this.panel_producto.SuspendLayout();
@@ -162,14 +162,15 @@
             this.lab_reciente.TabIndex = 9;
             this.lab_reciente.Text = "Fecha mas reciente";
             // 
-            // date_act
+            // date_reciente
             // 
-            this.date_act.CustomFormat = "MMM dd, yyyy";
-            this.date_act.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.date_act.Location = new System.Drawing.Point(300, 27);
-            this.date_act.Name = "date_act";
-            this.date_act.Size = new System.Drawing.Size(107, 20);
-            this.date_act.TabIndex = 10;
+            this.date_reciente.CustomFormat = "MMM dd, yyyy";
+            this.date_reciente.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.date_reciente.Location = new System.Drawing.Point(300, 27);
+            this.date_reciente.Name = "date_reciente";
+            this.date_reciente.Size = new System.Drawing.Size(107, 20);
+            this.date_reciente.TabIndex = 10;
+            this.date_reciente.ValueChanged += new System.EventHandler(this.date_act_ValueChanged);
             // 
             // btn_buscar
             // 
@@ -179,6 +180,7 @@
             this.btn_buscar.TabIndex = 11;
             this.btn_buscar.Text = "Buscar";
             this.btn_buscar.UseVisualStyleBackColor = true;
+            this.btn_buscar.Click += new System.EventHandler(this.btn_buscar_Click);
             // 
             // btn_dia
             // 
@@ -220,35 +222,15 @@
             this.panel_producto.Size = new System.Drawing.Size(210, 121);
             this.panel_producto.TabIndex = 15;
             // 
-            // label_producto
+            // lab_S
             // 
-            this.label_producto.AutoSize = true;
-            this.label_producto.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_producto.Location = new System.Drawing.Point(25, 0);
-            this.label_producto.Name = "label_producto";
-            this.label_producto.Size = new System.Drawing.Size(149, 17);
-            this.label_producto.TabIndex = 0;
-            this.label_producto.Text = "Producto mas vendido";
-            // 
-            // label_nam_product
-            // 
-            this.label_nam_product.AutoSize = true;
-            this.label_nam_product.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_nam_product.Location = new System.Drawing.Point(56, 25);
-            this.label_nam_product.Name = "label_nam_product";
-            this.label_nam_product.Size = new System.Drawing.Size(71, 20);
-            this.label_nam_product.TabIndex = 1;
-            this.label_nam_product.Text = "Nombre";
-            // 
-            // lab_data
-            // 
-            this.lab_data.AutoSize = true;
-            this.lab_data.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lab_data.Location = new System.Drawing.Point(8, 54);
-            this.lab_data.Name = "lab_data";
-            this.lab_data.Size = new System.Drawing.Size(183, 15);
-            this.lab_data.TabIndex = 2;
-            this.lab_data.Text = "fecha de registro o actualizacion";
+            this.lab_S.AutoSize = true;
+            this.lab_S.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lab_S.Location = new System.Drawing.Point(44, 85);
+            this.lab_S.Name = "lab_S";
+            this.lab_S.Size = new System.Drawing.Size(19, 20);
+            this.lab_S.TabIndex = 4;
+            this.lab_S.Text = "$";
             // 
             // lab_precio
             // 
@@ -261,15 +243,35 @@
             this.lab_precio.Text = "Precio";
             this.lab_precio.Click += new System.EventHandler(this.label2_Click);
             // 
-            // lab_S
+            // lab_data
             // 
-            this.lab_S.AutoSize = true;
-            this.lab_S.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lab_S.Location = new System.Drawing.Point(44, 85);
-            this.lab_S.Name = "lab_S";
-            this.lab_S.Size = new System.Drawing.Size(19, 20);
-            this.lab_S.TabIndex = 4;
-            this.lab_S.Text = "$";
+            this.lab_data.AutoSize = true;
+            this.lab_data.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lab_data.Location = new System.Drawing.Point(8, 54);
+            this.lab_data.Name = "lab_data";
+            this.lab_data.Size = new System.Drawing.Size(183, 15);
+            this.lab_data.TabIndex = 2;
+            this.lab_data.Text = "fecha de registro o actualizacion";
+            // 
+            // label_nam_product
+            // 
+            this.label_nam_product.AutoSize = true;
+            this.label_nam_product.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_nam_product.Location = new System.Drawing.Point(56, 25);
+            this.label_nam_product.Name = "label_nam_product";
+            this.label_nam_product.Size = new System.Drawing.Size(71, 20);
+            this.label_nam_product.TabIndex = 1;
+            this.label_nam_product.Text = "Nombre";
+            // 
+            // label_producto
+            // 
+            this.label_producto.AutoSize = true;
+            this.label_producto.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_producto.Location = new System.Drawing.Point(25, 0);
+            this.label_producto.Name = "label_producto";
+            this.label_producto.Size = new System.Drawing.Size(149, 17);
+            this.label_producto.TabIndex = 0;
+            this.label_producto.Text = "Producto mas vendido";
             // 
             // panel1
             // 
@@ -280,15 +282,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(398, 167);
             this.panel1.TabIndex = 16;
-            // 
-            // dataGrid_prod_vendidos
-            // 
-            this.dataGrid_prod_vendidos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGrid_prod_vendidos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGrid_prod_vendidos.Location = new System.Drawing.Point(3, 25);
-            this.dataGrid_prod_vendidos.Name = "dataGrid_prod_vendidos";
-            this.dataGrid_prod_vendidos.Size = new System.Drawing.Size(392, 139);
-            this.dataGrid_prod_vendidos.TabIndex = 0;
             // 
             // lab_produ_mas_vend
             // 
@@ -301,6 +294,16 @@
             this.lab_produ_mas_vend.Text = "Productos más vendidos por tienda";
             this.lab_produ_mas_vend.Click += new System.EventHandler(this.label2_Click_1);
             // 
+            // dataGrid_prod_vendidos
+            // 
+            this.dataGrid_prod_vendidos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGrid_prod_vendidos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGrid_prod_vendidos.Location = new System.Drawing.Point(3, 25);
+            this.dataGrid_prod_vendidos.Name = "dataGrid_prod_vendidos";
+            this.dataGrid_prod_vendidos.Size = new System.Drawing.Size(392, 139);
+            this.dataGrid_prod_vendidos.TabIndex = 0;
+            this.dataGrid_prod_vendidos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGrid_prod_vendidos_CellContentClick);
+            // 
             // Form1
             // 
             this.ClientSize = new System.Drawing.Size(944, 501);
@@ -310,7 +313,7 @@
             this.Controls.Add(this.btn_sem);
             this.Controls.Add(this.btn_dia);
             this.Controls.Add(this.btn_buscar);
-            this.Controls.Add(this.date_act);
+            this.Controls.Add(this.date_reciente);
             this.Controls.Add(this.lab_reciente);
             this.Controls.Add(this.lab_dateIni);
             this.Controls.Add(this.date_ini);
@@ -345,7 +348,7 @@
         private System.Windows.Forms.DateTimePicker date_ini;
         private System.Windows.Forms.Label lab_dateIni;
         private System.Windows.Forms.Label lab_reciente;
-        private System.Windows.Forms.DateTimePicker date_act;
+        private System.Windows.Forms.DateTimePicker date_reciente;
         private System.Windows.Forms.Button btn_buscar;
         private System.Windows.Forms.Button btn_dia;
         private System.Windows.Forms.Button btn_sem;
