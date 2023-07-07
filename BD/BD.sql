@@ -3999,8 +3999,21 @@ FOREIGN KEY (id_categoria) REFERENCES Categoria(id_categoria);
 ALTER TABLE Producto
 ADD CONSTRAINT FK_UdMedida
 FOREIGN KEY (id_udMedida) REFERENCES unidad_medida(id_udMedida);
+	--###### Venta ####
+ALTER TABLE Venta
+ADD CONSTRAINT FK_idProducto_Venta
+FOREIGN KEY (id_producto) REFERENCES Producto(id_producto);
+
+ALTER TABLE Venta
+ADD CONSTRAINT FK_idEmpresa_Venta
+FOREIGN KEY (id_empresa) REFERENCES Empresa(id_empresa);
+
+ALTER TABLE Venta
+ADD CONSTRAINT FK_idUDMedida_Venta
+FOREIGN KEY (id_udMedida) REFERENCES unidad_medida(id_udMedida);
 
 --Consultas
+USE [Dashboard]
 --####### TOP PRODUCTOS MAS VENDIDOS #########
 DECLARE @fechaInicio DATE ='2023-01-04';
 DECLARE @fechaReciente DATE = '2023-07-04';
@@ -4012,12 +4025,27 @@ WHERE V.date_venta BETWEEN @fechaInicio AND @fechaReciente
 GROUP BY P.prod_nombre
 ORDER BY ventas desc;
 
+--####### TOP PRODUCTOS MAS VENDIDOS POR COMPETIDORES #########
+SELECT id_empresa, emp_nombre FROM Empresa
+
+
+DECLARE @fechaInicio DATE ='2023-01-04';
+DECLARE @fechaReciente DATE = '2023-07-04';
+
+SELECT P.prod_nombre,  SUM(V.cant_compra) as ventas,EM.emp_nombre, P.prod_precio, UDM.ud_nombre
+FROM Venta V
+INNER JOIN Producto P ON V.prod_nombre = P.prod_nombre
+INNER JOIN Empresa EM ON V.id_empresa = EM.id_empresa
+INNER JOIN unidad_medida UDM ON P.id_udMedida = UDM.id_udMedida
+WHERE V.date_venta BETWEEN @fechaInicio AND @fechaReciente
+GROUP BY P.prod_nombre, EM.emp_nombre, P.prod_precio, UDM.ud_nombre
+ORDER BY ventas desc;
 --########################
 --CREATE PROCEDURE SP_ProductosMasVendidos
 --@fechaInicio DATE,
 --@fechaReciente DATE
 --AS
---SELECT TOP 5 P.prod_nombre, SUM(V.cant_compra) as ventas
+--SELECT TOP 5 P.prod_nombre AS Producto, SUM(V.cant_compra) AS ventas
 --FROM VENTA V
 --INNER JOIN Producto P ON V.prod_nombre = P.prod_nombre
 --WHERE V.date_venta BETWEEN @fechaInicio AND @fechaReciente
@@ -4026,3 +4054,53 @@ ORDER BY ventas desc;
 
 --EXECUTE SP_ProductosMasVendidos '2023-01-04','2023-02-04';
 --########################################################
+
+--######## Procedimiento para mostrar empresas ###########
+--CREATE PROCEDURE SP_listaEmpresas
+--AS
+--SELECT id_empresa, emp_nombre FROM Empresa
+--GO
+
+--EXECUTE SP_listaEmpresas
+--#########################################################
+--######### MAS DETALLES ###############
+--CREATE PROCEDURE SP_detallesVentas
+--@fechaInicio DATE,
+--@fechaReciente DATE
+--AS
+--SELECT P.prod_nombre AS Producto,  SUM(V.cant_compra) as Ventas,EM.emp_nombre AS Empresa, P.prod_precio AS Precio, UDM.ud_nombre AS Medida
+--FROM Venta V
+--INNER JOIN Producto P ON V.prod_nombre = P.prod_nombre
+--INNER JOIN Empresa EM ON V.id_empresa = EM.id_empresa
+--INNER JOIN unidad_medida UDM ON P.id_udMedida = UDM.id_udMedida
+--WHERE V.date_venta BETWEEN @fechaInicio AND @fechaReciente
+--GROUP BY P.prod_nombre, EM.emp_nombre, P.prod_precio, UDM.ud_nombre
+--ORDER BY ventas desc;
+
+--EXECUTE SP_detallesVentas '2023-01-04','2023-02-04';
+
+--Drop PROCEDURE SP_productosMasVendidosHastaHoy;
+--###########################################################
+--##########PRODUCTOS MAS VENDIDOS HASTA HOY#################
+--CREATE PROCEDURE SP_productosMasVendidosHastaHoy
+--AS
+--SELECT TOP 10 P.prod_nombre AS Producto, SUM(V.cant_compra) AS ventas
+--FROM VENTA V
+--INNER JOIN Producto P ON V.prod_nombre = P.prod_nombre
+--GROUP BY P.prod_nombre
+--ORDER BY ventas desc;
+--GO
+--EXECUTE SP_productosMasVendidosHastaHoy
+
+--############################################################
+--######## VENTAS POR EMPRESA ##############
+CREATE PROCEDURE SP_VentasXEmpresa
+AS
+SELECT EM.emp_nombre, SUM(V.cant_compra) as ventas
+FROM Venta V
+INNER JOIN Empresa EM ON V.id_empresa = EM.id_empresa
+GROUP BY EM.emp_nombre
+ORDER BY ventas desc;
+GO
+EXECUTE SP_VentasXEmpresa
+--############################

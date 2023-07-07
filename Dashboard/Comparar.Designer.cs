@@ -37,6 +37,9 @@
             this.comboBoxEmp1 = new System.Windows.Forms.ComboBox();
             this.comboBoxEmp2 = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.SuspendLayout();
             // 
             // label1
@@ -130,12 +133,42 @@
             this.label3.TabIndex = 7;
             this.label3.Text = "Empresa";
             // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.ColumnCount = 2;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(79, 190);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 2;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(8, 8);
+            this.tableLayoutPanel1.TabIndex = 9;
+            // 
+            // panel1
+            // 
+            this.panel1.Location = new System.Drawing.Point(12, 135);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(305, 211);
+            this.panel1.TabIndex = 10;
+            // 
+            // panel2
+            // 
+            this.panel2.Location = new System.Drawing.Point(347, 135);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(305, 211);
+            this.panel2.TabIndex = 11;
+            // 
             // Comparar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(671, 450);
+            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.comboBoxEmp2);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.comboBoxEmp1);
@@ -163,5 +196,8 @@
         private System.Windows.Forms.ComboBox comboBoxEmp1;
         private System.Windows.Forms.ComboBox comboBoxEmp2;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel2;
     }
 }

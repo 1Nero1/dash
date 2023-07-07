@@ -45,8 +45,6 @@
             this.date_reciente = new System.Windows.Forms.DateTimePicker();
             this.btn_buscar = new System.Windows.Forms.Button();
             this.btn_dia = new System.Windows.Forms.Button();
-            this.btn_sem = new System.Windows.Forms.Button();
-            this.btn_mes = new System.Windows.Forms.Button();
             this.panel_producto = new System.Windows.Forms.Panel();
             this.lab_S = new System.Windows.Forms.Label();
             this.lab_precio = new System.Windows.Forms.Label();
@@ -72,11 +70,10 @@
             this.charComparativa.Legends.Add(legend1);
             this.charComparativa.Location = new System.Drawing.Point(-1, 226);
             this.charComparativa.Name = "charComparativa";
+            this.charComparativa.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SemiTransparent;
             series1.ChartArea = "chartComparativa";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
             series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            series1.YValuesPerPoint = 2;
+            series1.Name = "Empresas";
             this.charComparativa.Series.Add(series1);
             this.charComparativa.Size = new System.Drawing.Size(480, 270);
             this.charComparativa.TabIndex = 1;
@@ -94,6 +91,8 @@
             this.chartTopVentas.Name = "chartTopVentas";
             series2.ChartArea = "ChartArea1";
             series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
+            series2.IsValueShownAsLabel = true;
+            series2.LabelForeColor = System.Drawing.Color.White;
             series2.Legend = "Legend1";
             series2.Name = "Series1";
             this.chartTopVentas.Series.Add(series2);
@@ -186,30 +185,13 @@
             // 
             // btn_dia
             // 
-            this.btn_dia.Location = new System.Drawing.Point(548, 24);
+            this.btn_dia.Location = new System.Drawing.Point(545, 24);
             this.btn_dia.Name = "btn_dia";
-            this.btn_dia.Size = new System.Drawing.Size(75, 23);
+            this.btn_dia.Size = new System.Drawing.Size(118, 23);
             this.btn_dia.TabIndex = 12;
-            this.btn_dia.Text = "Dia";
+            this.btn_dia.Text = "Más detalles";
             this.btn_dia.UseVisualStyleBackColor = true;
-            // 
-            // btn_sem
-            // 
-            this.btn_sem.Location = new System.Drawing.Point(629, 24);
-            this.btn_sem.Name = "btn_sem";
-            this.btn_sem.Size = new System.Drawing.Size(75, 23);
-            this.btn_sem.TabIndex = 13;
-            this.btn_sem.Text = "Semana";
-            this.btn_sem.UseVisualStyleBackColor = true;
-            // 
-            // btn_mes
-            // 
-            this.btn_mes.Location = new System.Drawing.Point(710, 24);
-            this.btn_mes.Name = "btn_mes";
-            this.btn_mes.Size = new System.Drawing.Size(75, 23);
-            this.btn_mes.TabIndex = 14;
-            this.btn_mes.Text = "Mes";
-            this.btn_mes.UseVisualStyleBackColor = true;
+            this.btn_dia.Click += new System.EventHandler(this.btn_dia_Click);
             // 
             // panel_producto
             // 
@@ -282,8 +264,9 @@
             this.panel1.Controls.Add(this.dataGrid_prod_vendidos);
             this.panel1.Location = new System.Drawing.Point(225, 53);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(398, 167);
+            this.panel1.Size = new System.Drawing.Size(438, 167);
             this.panel1.TabIndex = 16;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // lab_produ_mas_vend
             // 
@@ -302,7 +285,7 @@
             this.dataGrid_prod_vendidos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGrid_prod_vendidos.Location = new System.Drawing.Point(3, 25);
             this.dataGrid_prod_vendidos.Name = "dataGrid_prod_vendidos";
-            this.dataGrid_prod_vendidos.Size = new System.Drawing.Size(392, 139);
+            this.dataGrid_prod_vendidos.Size = new System.Drawing.Size(432, 139);
             this.dataGrid_prod_vendidos.TabIndex = 0;
             this.dataGrid_prod_vendidos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGrid_prod_vendidos_CellContentClick);
             // 
@@ -311,8 +294,6 @@
             this.ClientSize = new System.Drawing.Size(944, 501);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel_producto);
-            this.Controls.Add(this.btn_mes);
-            this.Controls.Add(this.btn_sem);
             this.Controls.Add(this.btn_dia);
             this.Controls.Add(this.btn_buscar);
             this.Controls.Add(this.date_reciente);
@@ -353,8 +334,6 @@
         private System.Windows.Forms.DateTimePicker date_reciente;
         private System.Windows.Forms.Button btn_buscar;
         private System.Windows.Forms.Button btn_dia;
-        private System.Windows.Forms.Button btn_sem;
-        private System.Windows.Forms.Button btn_mes;
         private System.Windows.Forms.Panel panel_producto;
         private System.Windows.Forms.Label label_producto;
         private System.Windows.Forms.Label label_nam_product;

@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Dashboard.BD;
+using System.Collections;
 
 namespace Dashboard
 {
@@ -17,7 +18,7 @@ namespace Dashboard
         //Conexion
         SqlConnection Conexion = new SqlConnection("Server=(local); DataBase=Dashboard; integrated Security= true");
         SqlCommand cmd;
-        SqlConnection dr;
+        SqlDataReader dr;
 
 
         public Form1()
@@ -37,7 +38,8 @@ namespace Dashboard
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            graficaTopProductos();
+            graficaTopEmpresas();
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)
@@ -112,6 +114,63 @@ namespace Dashboard
         {
             Form formComparar = new Comparar();
             formComparar.Show();
+        }
+
+        private void getDetallesVentas()
+        {
+            SqlDataAdapter bd = new SqlDataAdapter("SP_detallesVentas", Conexion);
+            bd.SelectCommand.CommandType = CommandType.StoredProcedure;
+            bd.SelectCommand.Parameters.Add("@fechaInicio", SqlDbType.DateTime).Value = date_ini.Text;
+            bd.SelectCommand.Parameters.Add("@fechaReciente", SqlDbType.DateTime).Value = date_reciente.Text;
+            DataTable dt = new DataTable();
+            bd.Fill(dt);
+            this.dataGrid_prod_vendidos.DataSource = dt;
+        }
+
+        private void btn_dia_Click(object sender, EventArgs e)
+        {
+            getDetallesVentas();
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        ArrayList empresas = new ArrayList();
+        ArrayList ventas = new ArrayList();
+        private void graficaTopEmpresas()
+        {
+            cmd = new SqlCommand("SP_VentasXEmpresa", Conexion);
+            cmd.CommandType = CommandType.StoredProcedure;
+            Conexion.Open();
+            dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                empresas.Add(dr.GetString(0));
+                ventas.Add(dr.GetInt32(1));
+            }
+            charComparativa.Series[0].Points.DataBindXY(empresas, ventas);
+            dr.Close();
+            Conexion.Close();
+        }
+
+        ArrayList productos = new ArrayList();
+        ArrayList vendido = new ArrayList();
+        private void graficaTopProductos()
+        {
+            cmd = new SqlCommand("SP_productosMasVendidosHastaHoy", Conexion);
+            cmd.CommandType = CommandType.StoredProcedure;
+            Conexion.Open();
+            dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                productos.Add(dr.GetString(0));
+                vendido.Add(dr.GetInt32(1));
+            }
+            chartTopVentas.Series[0].Points.DataBindXY(productos, vendido);
+            dr.Close();
+            Conexion.Close();
         }
     }
 }
