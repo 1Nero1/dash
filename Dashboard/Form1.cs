@@ -20,20 +20,16 @@ namespace Dashboard
         SqlCommand cmd;
         SqlDataReader dr;
 
+        //Valores
+        ArrayList empresas = new ArrayList();
+        ArrayList ventas = new ArrayList();
+        ArrayList productos = new ArrayList();
+        ArrayList vendido = new ArrayList();
+
 
         public Form1()
         {
             InitializeComponent();
-        }
-
-        //Metodo para la gafica 
-        private void graficaCategorias()
-        {
-            cmd = new SqlCommand("SP_ProductosMasVendidos", Conexion);
-            cmd.Parameters.AddWithValue("@fechaInicio", date_ini.Text.ToString());
-            Console.WriteLine(date_ini);
-            cmd.CommandType = CommandType.StoredProcedure;
-            Conexion.Open();
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -137,8 +133,6 @@ namespace Dashboard
 
         }
 
-        ArrayList empresas = new ArrayList();
-        ArrayList ventas = new ArrayList();
         private void graficaTopEmpresas()
         {
             cmd = new SqlCommand("SP_VentasXEmpresa", Conexion);
@@ -155,8 +149,6 @@ namespace Dashboard
             Conexion.Close();
         }
 
-        ArrayList productos = new ArrayList();
-        ArrayList vendido = new ArrayList();
         private void graficaTopProductos()
         {
             cmd = new SqlCommand("SP_productosMasVendidosHastaHoy", Conexion);
