@@ -49,6 +49,12 @@
   <ItemGroup>
     <Compile Include="BD\conexionDB.cs" />
     <Compile Include="BD\DbConexion.cs" />
+    <Compile Include="Comparar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Comparar.Designer.cs">
+      <DependentUpon>Comparar.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -58,6 +64,9 @@
     <Compile Include="formulas\Dash.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Comparar.resx">
+      <DependentUpon>Comparar.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>

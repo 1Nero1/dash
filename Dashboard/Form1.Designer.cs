@@ -28,12 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.charComparativa = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.chartTopVentas = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.lab_Titulo = new System.Windows.Forms.Label();
@@ -65,19 +65,19 @@
             // 
             // charComparativa
             // 
-            chartArea3.Name = "chartComparativa";
-            this.charComparativa.ChartAreas.Add(chartArea3);
-            legend3.Name = "Legend1";
-            legend3.Title = "Comparacion";
-            this.charComparativa.Legends.Add(legend3);
+            chartArea1.Name = "chartComparativa";
+            this.charComparativa.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            legend1.Title = "Comparacion";
+            this.charComparativa.Legends.Add(legend1);
             this.charComparativa.Location = new System.Drawing.Point(-1, 226);
             this.charComparativa.Name = "charComparativa";
-            series3.ChartArea = "chartComparativa";
-            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series3.Legend = "Legend1";
-            series3.Name = "Series1";
-            series3.YValuesPerPoint = 2;
-            this.charComparativa.Series.Add(series3);
+            series1.ChartArea = "chartComparativa";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            series1.YValuesPerPoint = 2;
+            this.charComparativa.Series.Add(series1);
             this.charComparativa.Size = new System.Drawing.Size(480, 270);
             this.charComparativa.TabIndex = 1;
             this.charComparativa.Text = "chart2";
@@ -85,18 +85,18 @@
             // 
             // chartTopVentas
             // 
-            chartArea4.Name = "ChartArea1";
-            this.chartTopVentas.ChartAreas.Add(chartArea4);
-            legend4.Name = "Legend1";
-            legend4.Title = "Productos mas vendidos";
-            this.chartTopVentas.Legends.Add(legend4);
+            chartArea2.Name = "ChartArea1";
+            this.chartTopVentas.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            legend2.Title = "Productos mas vendidos";
+            this.chartTopVentas.Legends.Add(legend2);
             this.chartTopVentas.Location = new System.Drawing.Point(475, 226);
             this.chartTopVentas.Name = "chartTopVentas";
-            series4.ChartArea = "ChartArea1";
-            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
-            series4.Legend = "Legend1";
-            series4.Name = "Series1";
-            this.chartTopVentas.Series.Add(series4);
+            series2.ChartArea = "ChartArea1";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
+            series2.Legend = "Legend1";
+            series2.Name = "Series1";
+            this.chartTopVentas.Series.Add(series2);
             this.chartTopVentas.Size = new System.Drawing.Size(480, 270);
             this.chartTopVentas.TabIndex = 2;
             this.chartTopVentas.Text = "chartTopVentas";
@@ -124,12 +124,14 @@
             // 
             // btn_Comparar
             // 
-            this.btn_Comparar.Location = new System.Drawing.Point(766, 107);
+            this.btn_Comparar.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Comparar.Location = new System.Drawing.Point(735, 116);
             this.btn_Comparar.Name = "btn_Comparar";
-            this.btn_Comparar.Size = new System.Drawing.Size(75, 23);
+            this.btn_Comparar.Size = new System.Drawing.Size(121, 67);
             this.btn_Comparar.TabIndex = 6;
             this.btn_Comparar.Text = "Comparar";
             this.btn_Comparar.UseVisualStyleBackColor = true;
+            this.btn_Comparar.Click += new System.EventHandler(this.btn_Comparar_Click);
             // 
             // date_ini
             // 

@@ -14,7 +14,7 @@ namespace Dashboard
 {
     public partial class Form1 : Form
     {   
-        //Conecion
+        //Conexion
         SqlConnection Conexion = new SqlConnection("Server=(local); DataBase=Dashboard; integrated Security= true");
         SqlCommand cmd;
         SqlConnection dr;
@@ -106,6 +106,12 @@ namespace Dashboard
             DataTable dt = new DataTable();
             bd.Fill(dt);
             this.dataGrid_prod_vendidos.DataSource = dt;
+        }
+
+        private void btn_Comparar_Click(object sender, EventArgs e)
+        {
+            Form formComparar = new Comparar();
+            formComparar.Show();
         }
     }
 }
