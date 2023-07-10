@@ -4103,3 +4103,89 @@ ORDER BY ventas desc;
 --GO
 --EXECUTE SP_VentasXEmpresa
 --############################
+--######### MAS DETALLES SELECCIONANDO LA EMPRESA###############
+--CREATE PROCEDURE SP_detallesVentasEmpresa
+--@fechaInicio DATE,
+--@fechaReciente DATE,
+--@empresa VARCHAR (50)
+--AS
+--SELECT P.prod_nombre AS Producto,  SUM(V.cant_compra) as Ventas,EM.emp_nombre AS Empresa, P.prod_precio AS Precio, UDM.ud_nombre AS Medida
+--FROM Venta V
+--INNER JOIN Producto P ON V.prod_nombre = P.prod_nombre
+--INNER JOIN Empresa EM ON V.id_empresa = EM.id_empresa
+--INNER JOIN unidad_medida UDM ON P.id_udMedida = UDM.id_udMedida
+--WHERE V.date_venta BETWEEN @fechaInicio AND @fechaReciente
+--	AND EM.emp_nombre LIKE '%'+@empresa+'%'
+--GROUP BY P.prod_nombre, EM.emp_nombre, P.prod_precio, UDM.ud_nombre
+--ORDER BY ventas desc;
+
+--EXECUTE SP_detallesVentasEmpresa '2023-01-04','2023-02-04','BOTANICA GRANEL';
+
+--Select * from Producto
+
+----###################################################################################
+--############### DETALLES DE PRODUCTOS ########################
+--CREATE PROCEDURE SP_detallesProductos
+--@fechaInicio DATE,
+--@fechaReciente DATE,
+--@empresa VARCHAR (50),
+--@producto VARCHAR(50)
+--AS
+--SELECT V.id_venta AS VENTA, P.prod_nombre AS PRODUCTO, P.prod_precio AS PRECIO,
+--	EM.emp_nombre AS EMPRESA, V.date_venta AS FECHA_VENTA
+--FROM Venta V INNER JOIN Empresa EM ON V.id_empresa = EM.id_empresa
+--	INNER JOIN Producto P ON V.prod_nombre = P.prod_nombre
+--WHERE V.date_venta BETWEEN @fechaInicio AND @fechaReciente
+--	AND EM.emp_nombre LIKE @empresa
+--	AND P.prod_nombre LIKE @producto 
+--ORDER BY V.date_venta
+----############################################################################
+
+--##########PRODUCTOS MAS VENDIDOS HASTA HOY#################
+CREATE PROCEDURE SP_productosMasVendidosFechas
+AS
+SELECT TOP 10 P.prod_nombre AS Producto, V.date_venta
+FROM VENTA V
+INNER JOIN Producto P ON V.prod_nombre = P.prod_nombre
+GROUP BY P.prod_nombre, V.date_venta
+ORDER BY V.date_venta desc;
+GO
+EXECUTE SP_productosMasVendidosHastaHoy
+
+
+CREATE PROCEDURE SP_top_prodXfecha
+AS
+SELECT prod_nombre, date_venta
+FROM venta
+WHERE prod_nombre in (SELECT Producto FROM Top10ProductosMasVendidos)
+ORDER BY prod_nombre
+
+
+Select prod_nombre AS PRODUCTO, date_venta AS FECHAVENTA from Venta WHERE prod_nombre='ACAI EN POLVO'
+
+
+--############### VISTAS ##################
+--CREATE VIEW Top10ProductosMasVendidos
+--AS
+--SELECT TOP 10 P.prod_nombre AS Producto, SUM(V.cant_compra) AS ventas
+--FROM VENTA V
+--INNER JOIN Producto P ON V.prod_nombre = P.prod_nombre
+--GROUP BY P.prod_nombre
+--ORDER BY ventas desc
+
+
+--+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+--+++++++++++	store procedure insertar Empresa ++++++
+CREATE PROCEDURE SP_insertarEmpresa
+@emp_nombre VARCHAR (50),
+@emp_ciudad VARCHAR (50),
+@emp_estado VARCHAR (50),
+@emp_zona VARCHAR (25)
+AS
+BEGIN
+INSERT INTO Empresa (emp_nombre, emp_ciudad, emp_estado, emp_zona)
+VALUES (@emp_nombre,@emp_ciudad,@emp_estado,@emp_zona);
+END
+
+EXECUTE SP_insertarEmpresa 'BANCO','CIUDAD DE MEXICO','CIUDAD DE MEXICO','SUR'
+SELECT * FROM Empresa

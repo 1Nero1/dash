@@ -13,3 +13,7 @@ C:\Users\Ikaros\Desktop\Proyecto\Dashboard en C#\Dashboard\obj\Debug\Dashboard.C
 C:\Users\Ikaros\Desktop\Proyecto\Dashboard en C#\Dashboard\obj\Debug\Dashboard.regEmpresa.resources
 C:\Users\Ikaros\Desktop\Proyecto\Dashboard en C#\Dashboard\obj\Debug\Dashboard.registrar.resources
 C:\Users\Ikaros\Desktop\Proyecto\Dashboard en C#\Dashboard\obj\Debug\Dashboard.regProductos.resources
+C:\Users\Ikaros\Desktop\Proyecto\Dashboard en C#\Dashboard\bin\Debug\Dashboard.exe.manifest
+C:\Users\Ikaros\Desktop\Proyecto\Dashboard en C#\Dashboard\bin\Debug\Dashboard.application
+C:\Users\Ikaros\Desktop\Proyecto\Dashboard en C#\Dashboard\obj\Debug\Dashboard.exe.manifest
+C:\Users\Ikaros\Desktop\Proyecto\Dashboard en C#\Dashboard\obj\Debug\Dashboard.application

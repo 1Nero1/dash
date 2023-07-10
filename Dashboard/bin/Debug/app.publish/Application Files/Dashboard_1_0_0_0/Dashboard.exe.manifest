@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<asmv1:assembly xsi:schemaLocation="urn:schemas-microsoft-com:asm.v1 assembly.adaptive.xsd" manifestVersion="1.0" xmlns:asmv1="urn:schemas-microsoft-com:asm.v1" xmlns="urn:schemas-microsoft-com:asm.v2" xmlns:asmv2="urn:schemas-microsoft-com:asm.v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:co.v1="urn:schemas-microsoft-com:clickonce.v1" xmlns:asmv3="urn:schemas-microsoft-com:asm.v3" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:co.v2="urn:schemas-microsoft-com:clickonce.v2">
+  <asmv1:assemblyIdentity name="Dashboard.exe" version="1.0.0.0" publicKeyToken="ff5504cbe34a5dba" language="neutral" processorArchitecture="msil" type="win32" />
+  <application />
+  <entryPoint>
+    <assemblyIdentity name="Dashboard" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+    <commandLine file="Dashboard.exe" parameters="" />
+  </entryPoint>
+  <trustInfo>
+    <security>
+      <applicationRequestMinimum>
+        <PermissionSet Unrestricted="true" ID="Custom" SameSite="site" />
+        <defaultAssemblyRequest permissionSetReference="Custom" />
+      </applicationRequestMinimum>
+      <requestedPrivileges xmlns="urn:schemas-microsoft-com:asm.v3">
+        <!--
+          Opciones del manifiesto de Control de cuentas de usuario
+          Si quiere cambiar el nivel de Control de cuentas de usuario de Windows, reemplace el
+          nodo requestedExecutionLevel por alguno de los siguientes.
+
+        <requestedExecutionLevel  level="asInvoker" uiAccess="false" />
+        <requestedExecutionLevel  level="requireAdministrator" uiAccess="false" />
+        <requestedExecutionLevel  level="highestAvailable" uiAccess="false" />
+
+         Si desea usar la virtualización de archivos y del Registro para la
+         compatibilidad con versiones anteriores, elimine el nodo requestedExecutionLevel.
+    -->
+        <requestedExecutionLevel level="asInvoker" uiAccess="false" />
+      </requestedPrivileges>
+    </security>
+  </trustInfo>
+  <dependency>
+    <dependentOS>
+      <osVersionInfo>
+        <os majorVersion="5" minorVersion="1" buildNumber="2600" servicePackMajor="0" />
+      </osVersionInfo>
+    </dependentOS>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="preRequisite" allowDelayedBinding="true">
+      <assemblyIdentity name="Microsoft.Windows.CommonLanguageRuntime" version="4.0.30319.0" />
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Dashboard.exe" size="36328">
+      <assemblyIdentity name="Dashboard" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>wUh28SA1Fo1lUxywjqsa45WV7WDu+qh03x3mxaz1DDU=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <file name="Dashboard.exe.config" size="189">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>R+Wg8QGvQVHX8T0ta/qbhH1bXkqY0fRnS3wBV3J0bN8=</dsig:DigestValue>
+    </hash>
+  </file>
+<publisherIdentity name="CN=DESKTOP-UKI8EMI\Ikaros" issuerKeyHash="1ffb7cc176cf156db86ce86f132c75cb63c6d7bc" /><Signature Id="StrongNameSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" /><DigestValue>AvTaXNgp7KiZe8zNhJ/EQimCYbcPYcR2pN0sTwRrfWk=</DigestValue></Reference></SignedInfo><SignatureValue>DVP4GXpFVpty/7nBnxpYz+puh7SZyj8L/K/OE0fTh5COgnF0adIp+eKJTfYrOh5JYlXNv8SzsruHZTyzNGhQEm0dPctbtBkvL+pI7rJocokknPaHWt1tf6btjg7hCAUTM/pUlgEXnXi2CFqHEXlpqUNlT15WKmPkGp4NXWG3o38=</SignatureValue><KeyInfo Id="StrongNameKeyInfo"><KeyValue><RSAKeyValue><Modulus>nZrxVIvNWn2rvkb30hSRXcHLOZFfZbd+pT2dEC1/2nItD9lTU+ou1IjV9PDAOidgG5CDA4J8RHHxbzqQ4Gl0eNiesJrAGeh20IkemrYnibdOCaJjUpV2HqrI6lH9UiEXo5PdcHRg1RrUBbI7snrBTpXvN2Eb0HxpFQ/xZ41za7E=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><msrel:RelData xmlns:msrel="http://schemas.microsoft.com/windows/rel/2005/reldata"><r:license xmlns:r="urn:mpeg:mpeg21:2003:01-REL-R-NS" xmlns:as="http://schemas.microsoft.com/windows/pki/2005/Authenticode"><r:grant><as:ManifestInformation Hash="697d6b044f2cdda476c4610fb761822942c49f84cdcc7b99a8ec29d85cdaf402" Description="" Url=""><as:assemblyIdentity name="Dashboard.exe" version="1.0.0.0" publicKeyToken="ff5504cbe34a5dba" language="neutral" processorArchitecture="msil" type="win32" /></as:ManifestInformation><as:SignedBy /><as:AuthenticodePublisher><as:X509SubjectName>CN=DESKTOP-UKI8EMI\Ikaros</as:X509SubjectName></as:AuthenticodePublisher></r:grant><r:issuer><Signature Id="AuthenticodeSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" /><DigestValue>me18Y8jhPKY2Vqlhu7S6mYAZV7sFAZRxlEq/So78ZHc=</DigestValue></Reference></SignedInfo><SignatureValue>PRSC5FuJktF85/p+12kDnJ45TxdNpxbU2JykHYNguX6Nd4NoZ9rX8PJBsjFZvNrptEF0jkBaesd6h3xPyckDxHLLm81C1YAfGE4FtpstedGe6gRAGULldXSm2MFjsjW0Y5a0ERvqiqeKc7FUOfEmziHKfTk9/23fBIBzYlp0PeU=</SignatureValue><KeyInfo><KeyValue><RSAKeyValue><Modulus>nZrxVIvNWn2rvkb30hSRXcHLOZFfZbd+pT2dEC1/2nItD9lTU+ou1IjV9PDAOidgG5CDA4J8RHHxbzqQ4Gl0eNiesJrAGeh20IkemrYnibdOCaJjUpV2HqrI6lH9UiEXo5PdcHRg1RrUBbI7snrBTpXvN2Eb0HxpFQ/xZ41za7E=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><X509Data><X509Certificate>MIIB8TCCAVqgAwIBAgIQGZ5h0t5FBY5JCFRHmiepxjANBgkqhkiG9w0BAQsFADA3MTUwMwYDVQQDHiwARABFAFMASwBUAE8AUAAtAFUASwBJADgARQBNAEkAXABJAGsAYQByAG8AczAeFw0yMzA3MTAxNDM3NTNaFw0yNDA3MDkyMDM3NTNaMDcxNTAzBgNVBAMeLABEAEUAUwBLAFQATwBQAC0AVQBLAEkAOABFAE0ASQBcAEkAawBhAHIAbwBzMIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCdmvFUi81afau+RvfSFJFdwcs5kV9lt36lPZ0QLX/aci0P2VNT6i7UiNX08MA6J2AbkIMDgnxEcfFvOpDgaXR42J6wmsAZ6HbQiR6atieJt04JomNSlXYeqsjqUf1SIRejk91wdGDVGtQFsjuyesFOle83YRvQfGkVD/FnjXNrsQIDAQABMA0GCSqGSIb3DQEBCwUAA4GBAFrtZOU+D7gtHfv075QvD6gfZhLITJzqgMOXg9lJ9MtBLVIAWBgMhi1CTCQAuecPEuqpEVLpVTj0+N5xcBf1MQBAUBTTgJyI6QNd0Pyix9fBVrAiMMYl5eMVycyYanq20mBF/wwfgOk4O3phNi2D1aFUvAwhlvacIx0Dgbg12Cpk</X509Certificate></X509Data></KeyInfo></Signature></r:issuer></r:license></msrel:RelData></KeyInfo></Signature></asmv1:assembly>

@@ -172,8 +172,8 @@ namespace Dashboard
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            Form registrar = new registrar();
-            registrar.Show();
+            //Form registrar = new registrar();
+            //registrar.Show();
         }
     }
 }
