@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.dateInicial = new System.Windows.Forms.DateTimePicker();
-            this.dateReciente = new System.Windows.Forms.DateTimePicker();
+            this.date_ini = new System.Windows.Forms.DateTimePicker();
+            this.date_reciente = new System.Windows.Forms.DateTimePicker();
             this.button1 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.Empresa1 = new System.Windows.Forms.Label();
@@ -38,8 +38,13 @@
             this.comboBoxEmp2 = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.dataGridView_emp1 = new System.Windows.Forms.DataGridView();
+            this.dataGridView_emp2 = new System.Windows.Forms.DataGridView();
+            this.button2 = new System.Windows.Forms.Button();
+            this.cb_prod = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_emp1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_emp2)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -54,37 +59,38 @@
             this.label1.Text = "Comparativa";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
-            // dateInicial
+            // date_ini
             // 
-            this.dateInicial.CalendarMonthBackground = System.Drawing.SystemColors.Menu;
-            this.dateInicial.CalendarTitleBackColor = System.Drawing.Color.Black;
-            this.dateInicial.CustomFormat = "MMM dd, yyyy";
-            this.dateInicial.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateInicial.Location = new System.Drawing.Point(208, 19);
-            this.dateInicial.Name = "dateInicial";
-            this.dateInicial.Size = new System.Drawing.Size(93, 20);
-            this.dateInicial.TabIndex = 1;
-            this.dateInicial.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
+            this.date_ini.CalendarMonthBackground = System.Drawing.SystemColors.Menu;
+            this.date_ini.CalendarTitleBackColor = System.Drawing.Color.Black;
+            this.date_ini.CustomFormat = "MMM dd, yyyy";
+            this.date_ini.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.date_ini.Location = new System.Drawing.Point(208, 19);
+            this.date_ini.Name = "date_ini";
+            this.date_ini.Size = new System.Drawing.Size(93, 20);
+            this.date_ini.TabIndex = 1;
+            this.date_ini.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
             // 
-            // dateReciente
+            // date_reciente
             // 
-            this.dateReciente.CalendarMonthBackground = System.Drawing.SystemColors.Menu;
-            this.dateReciente.CalendarTitleBackColor = System.Drawing.Color.Black;
-            this.dateReciente.CustomFormat = "MMM dd, yyyy";
-            this.dateReciente.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateReciente.Location = new System.Drawing.Point(320, 19);
-            this.dateReciente.Name = "dateReciente";
-            this.dateReciente.Size = new System.Drawing.Size(93, 20);
-            this.dateReciente.TabIndex = 2;
+            this.date_reciente.CalendarMonthBackground = System.Drawing.SystemColors.Menu;
+            this.date_reciente.CalendarTitleBackColor = System.Drawing.Color.Black;
+            this.date_reciente.CustomFormat = "MMM dd, yyyy";
+            this.date_reciente.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.date_reciente.Location = new System.Drawing.Point(320, 19);
+            this.date_reciente.Name = "date_reciente";
+            this.date_reciente.Size = new System.Drawing.Size(93, 20);
+            this.date_reciente.TabIndex = 2;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(432, 17);
+            this.button1.Location = new System.Drawing.Point(435, 9);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.Size = new System.Drawing.Size(96, 42);
             this.button1.TabIndex = 3;
-            this.button1.Text = "button1";
+            this.button1.Text = "Productos mas vendidos";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // label2
             // 
@@ -118,16 +124,17 @@
             // comboBoxEmp2
             // 
             this.comboBoxEmp2.FormattingEnabled = true;
-            this.comboBoxEmp2.Location = new System.Drawing.Point(455, 93);
+            this.comboBoxEmp2.Location = new System.Drawing.Point(638, 87);
             this.comboBoxEmp2.Name = "comboBoxEmp2";
             this.comboBoxEmp2.Size = new System.Drawing.Size(121, 21);
             this.comboBoxEmp2.TabIndex = 8;
+            this.comboBoxEmp2.SelectedIndexChanged += new System.EventHandler(this.comboBoxEmp2_SelectedIndexChanged);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(391, 93);
+            this.label3.Location = new System.Drawing.Point(574, 87);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(57, 15);
             this.label3.TabIndex = 7;
@@ -146,28 +153,63 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(8, 8);
             this.tableLayoutPanel1.TabIndex = 9;
             // 
-            // panel1
+            // dataGridView_emp1
             // 
-            this.panel1.Location = new System.Drawing.Point(12, 135);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(305, 211);
-            this.panel1.TabIndex = 10;
+            this.dataGridView_emp1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView_emp1.Location = new System.Drawing.Point(21, 131);
+            this.dataGridView_emp1.Name = "dataGridView_emp1";
+            this.dataGridView_emp1.Size = new System.Drawing.Size(410, 241);
+            this.dataGridView_emp1.TabIndex = 10;
             // 
-            // panel2
+            // dataGridView_emp2
             // 
-            this.panel2.Location = new System.Drawing.Point(347, 135);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(305, 211);
-            this.panel2.TabIndex = 11;
+            this.dataGridView_emp2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView_emp2.Location = new System.Drawing.Point(455, 131);
+            this.dataGridView_emp2.Name = "dataGridView_emp2";
+            this.dataGridView_emp2.Size = new System.Drawing.Size(410, 241);
+            this.dataGridView_emp2.TabIndex = 14;
+            this.dataGridView_emp2.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(768, 9);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(96, 42);
+            this.button2.TabIndex = 15;
+            this.button2.Text = "Comparar productos";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // cb_prod
+            // 
+            this.cb_prod.FormattingEnabled = true;
+            this.cb_prod.Location = new System.Drawing.Point(629, 18);
+            this.cb_prod.Name = "cb_prod";
+            this.cb_prod.Size = new System.Drawing.Size(121, 21);
+            this.cb_prod.TabIndex = 17;
+            this.cb_prod.SelectedIndexChanged += new System.EventHandler(this.cb_prod_SelectedIndexChanged);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(565, 18);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(62, 15);
+            this.label4.TabIndex = 16;
+            this.label4.Text = "Productos";
             // 
             // Comparar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(671, 450);
-            this.Controls.Add(this.panel2);
-            this.Controls.Add(this.panel1);
+            this.ClientSize = new System.Drawing.Size(876, 385);
+            this.Controls.Add(this.cb_prod);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.dataGridView_emp2);
+            this.Controls.Add(this.dataGridView_emp1);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.comboBoxEmp2);
             this.Controls.Add(this.label3);
@@ -175,11 +217,13 @@
             this.Controls.Add(this.Empresa1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.dateReciente);
-            this.Controls.Add(this.dateInicial);
+            this.Controls.Add(this.date_reciente);
+            this.Controls.Add(this.date_ini);
             this.Controls.Add(this.label1);
             this.Name = "Comparar";
             this.Text = "Comparar";
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_emp1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_emp2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -188,8 +232,8 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DateTimePicker dateInicial;
-        private System.Windows.Forms.DateTimePicker dateReciente;
+        private System.Windows.Forms.DateTimePicker date_ini;
+        private System.Windows.Forms.DateTimePicker date_reciente;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label Empresa1;
@@ -197,7 +241,10 @@
         private System.Windows.Forms.ComboBox comboBoxEmp2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.DataGridView dataGridView_emp1;
+        private System.Windows.Forms.DataGridView dataGridView_emp2;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.ComboBox cb_prod;
+        private System.Windows.Forms.Label label4;
     }
 }

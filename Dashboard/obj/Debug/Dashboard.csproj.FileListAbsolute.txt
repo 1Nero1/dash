@@ -10,3 +10,6 @@ C:\Users\Ikaros\Desktop\Proyecto\Dashboard en C#\Dashboard\obj\Debug\Dashboard.c
 C:\Users\Ikaros\Desktop\Proyecto\Dashboard en C#\Dashboard\obj\Debug\Dashboard.exe
 C:\Users\Ikaros\Desktop\Proyecto\Dashboard en C#\Dashboard\obj\Debug\Dashboard.pdb
 C:\Users\Ikaros\Desktop\Proyecto\Dashboard en C#\Dashboard\obj\Debug\Dashboard.Comparar.resources
+C:\Users\Ikaros\Desktop\Proyecto\Dashboard en C#\Dashboard\obj\Debug\Dashboard.regEmpresa.resources
+C:\Users\Ikaros\Desktop\Proyecto\Dashboard en C#\Dashboard\obj\Debug\Dashboard.registrar.resources
+C:\Users\Ikaros\Desktop\Proyecto\Dashboard en C#\Dashboard\obj\Debug\Dashboard.regProductos.resources

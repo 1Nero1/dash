@@ -8,7 +8,6 @@ CREATE TABLE Empresa(
 	emp_zona VARCHAR (25)
 );
 
---DROP TABLE Producto;
 
 CREATE TABLE Marca(
 	id_marca INT IDENTITY,
@@ -4094,13 +4093,13 @@ ORDER BY ventas desc;
 
 --############################################################
 --######## VENTAS POR EMPRESA ##############
-CREATE PROCEDURE SP_VentasXEmpresa
-AS
-SELECT EM.emp_nombre, SUM(V.cant_compra) as ventas
-FROM Venta V
-INNER JOIN Empresa EM ON V.id_empresa = EM.id_empresa
-GROUP BY EM.emp_nombre
-ORDER BY ventas desc;
-GO
-EXECUTE SP_VentasXEmpresa
+--CREATE PROCEDURE SP_VentasXEmpresa
+--AS
+--SELECT EM.emp_nombre, SUM(V.cant_compra) as ventas
+--FROM Venta V
+--INNER JOIN Empresa EM ON V.id_empresa = EM.id_empresa
+--GROUP BY EM.emp_nombre
+--ORDER BY ventas desc;
+--GO
+--EXECUTE SP_VentasXEmpresa
 --############################

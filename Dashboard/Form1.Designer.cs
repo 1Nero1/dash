@@ -28,12 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea9 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend9 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series9 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea10 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend10 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series10 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.charComparativa = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.chartTopVentas = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.lab_Titulo = new System.Windows.Forms.Label();
@@ -54,6 +54,8 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.lab_produ_mas_vend = new System.Windows.Forms.Label();
             this.dataGrid_prod_vendidos = new System.Windows.Forms.DataGridView();
+            this.button1 = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.charComparativa)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartTopVentas)).BeginInit();
             this.panel_producto.SuspendLayout();
@@ -63,18 +65,18 @@
             // 
             // charComparativa
             // 
-            chartArea1.Name = "chartComparativa";
-            this.charComparativa.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            legend1.Title = "Comparacion";
-            this.charComparativa.Legends.Add(legend1);
+            chartArea9.Name = "chartComparativa";
+            this.charComparativa.ChartAreas.Add(chartArea9);
+            legend9.Name = "Legend1";
+            legend9.Title = "Comparacion";
+            this.charComparativa.Legends.Add(legend9);
             this.charComparativa.Location = new System.Drawing.Point(-1, 226);
             this.charComparativa.Name = "charComparativa";
             this.charComparativa.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SemiTransparent;
-            series1.ChartArea = "chartComparativa";
-            series1.Legend = "Legend1";
-            series1.Name = "Empresas";
-            this.charComparativa.Series.Add(series1);
+            series9.ChartArea = "chartComparativa";
+            series9.Legend = "Legend1";
+            series9.Name = "Empresas";
+            this.charComparativa.Series.Add(series9);
             this.charComparativa.Size = new System.Drawing.Size(480, 270);
             this.charComparativa.TabIndex = 1;
             this.charComparativa.Text = "chart2";
@@ -82,23 +84,24 @@
             // 
             // chartTopVentas
             // 
-            chartArea2.Name = "ChartArea1";
-            this.chartTopVentas.ChartAreas.Add(chartArea2);
-            legend2.Name = "Legend1";
-            legend2.Title = "Productos mas vendidos";
-            this.chartTopVentas.Legends.Add(legend2);
-            this.chartTopVentas.Location = new System.Drawing.Point(475, 226);
+            chartArea10.Name = "ChartArea1";
+            this.chartTopVentas.ChartAreas.Add(chartArea10);
+            legend10.Name = "Legend1";
+            legend10.Title = "Productos mas vendidos";
+            this.chartTopVentas.Legends.Add(legend10);
+            this.chartTopVentas.Location = new System.Drawing.Point(485, 226);
             this.chartTopVentas.Name = "chartTopVentas";
-            series2.ChartArea = "ChartArea1";
-            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
-            series2.IsValueShownAsLabel = true;
-            series2.LabelForeColor = System.Drawing.Color.White;
-            series2.Legend = "Legend1";
-            series2.Name = "Series1";
-            this.chartTopVentas.Series.Add(series2);
-            this.chartTopVentas.Size = new System.Drawing.Size(480, 270);
+            series10.ChartArea = "ChartArea1";
+            series10.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.StackedArea;
+            series10.IsValueShownAsLabel = true;
+            series10.LabelForeColor = System.Drawing.Color.White;
+            series10.Legend = "Legend1";
+            series10.Name = "Series1";
+            this.chartTopVentas.Series.Add(series10);
+            this.chartTopVentas.Size = new System.Drawing.Size(470, 270);
             this.chartTopVentas.TabIndex = 2;
             this.chartTopVentas.Text = "chartTopVentas";
+            this.chartTopVentas.Click += new System.EventHandler(this.chartTopVentas_Click);
             // 
             // lab_Titulo
             // 
@@ -114,7 +117,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(675, 66);
+            this.label1.Location = new System.Drawing.Point(669, 11);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(260, 34);
             this.label1.TabIndex = 5;
@@ -124,9 +127,9 @@
             // btn_Comparar
             // 
             this.btn_Comparar.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Comparar.Location = new System.Drawing.Point(735, 116);
+            this.btn_Comparar.Location = new System.Drawing.Point(732, 53);
             this.btn_Comparar.Name = "btn_Comparar";
-            this.btn_Comparar.Size = new System.Drawing.Size(121, 67);
+            this.btn_Comparar.Size = new System.Drawing.Size(114, 45);
             this.btn_Comparar.TabIndex = 6;
             this.btn_Comparar.Text = "Comparar";
             this.btn_Comparar.UseVisualStyleBackColor = true;
@@ -289,9 +292,32 @@
             this.dataGrid_prod_vendidos.TabIndex = 0;
             this.dataGrid_prod_vendidos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGrid_prod_vendidos_CellContentClick);
             // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(745, 143);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(91, 31);
+            this.button1.TabIndex = 18;
+            this.button1.Text = "Registrar";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(701, 118);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(186, 17);
+            this.label2.TabIndex = 17;
+            this.label2.Text = "Registrar nueva informacion";
+            // 
             // Form1
             // 
             this.ClientSize = new System.Drawing.Size(944, 501);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel_producto);
             this.Controls.Add(this.btn_dia);
@@ -343,6 +369,8 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.DataGridView dataGrid_prod_vendidos;
         private System.Windows.Forms.Label lab_produ_mas_vend;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label label2;
     }
 }
 

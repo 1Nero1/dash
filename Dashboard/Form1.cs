@@ -24,7 +24,7 @@ namespace Dashboard
         ArrayList empresas = new ArrayList();
         ArrayList ventas = new ArrayList();
         ArrayList productos = new ArrayList();
-        ArrayList vendido = new ArrayList();
+        ArrayList fecha = new ArrayList();
 
 
         public Form1()
@@ -158,11 +158,22 @@ namespace Dashboard
             while (dr.Read())
             {
                 productos.Add(dr.GetString(0));
-                vendido.Add(dr.GetInt32(1));
+                fecha.Add(dr.GetInt32(1));
             }
-            chartTopVentas.Series[0].Points.DataBindXY(productos, vendido);
+            chartTopVentas.Series[0].Points.DataBindXY(productos, fecha);
             dr.Close();
             Conexion.Close();
+        }
+
+        private void chartTopVentas_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            Form registrar = new registrar();
+            registrar.Show();
         }
     }
 }
